@@ -1,0 +1,660 @@
+# yaml-language-server: $schema=bin/generator/sdk_generator/data/sdk_data_schema/v3/software_set_and_project_schema.json
+
+middleware.wireless.wpa_supplicant.rtos:
+  section-type: component
+  contents:
+    repo_base_path: middleware/wireless/wpa_supplicant-rtos
+    project_base_path: wpa_supplicant-rtos
+    cc-include:
+    - repo_relative_path: "./"
+    - repo_relative_path: src
+    - repo_relative_path: src/utils
+    - repo_relative_path: src/common
+    - repo_relative_path: src/crypto
+    - repo_relative_path: src/ap
+    - repo_relative_path: src/drivers
+    - repo_relative_path: src/eap_common
+    - repo_relative_path: src/eap_peer
+    - repo_relative_path: src/eap_server
+    - repo_relative_path: src/eapol_auth
+    - repo_relative_path: src/eapol_supp
+    - repo_relative_path: src/fst
+    - repo_relative_path: src/l2_packet
+    - repo_relative_path: src/p2p
+    - repo_relative_path: src/pae
+    - repo_relative_path: src/radius
+    - repo_relative_path: src/rsn_supp
+    - repo_relative_path: src/tls
+    - repo_relative_path: src/wps
+    - repo_relative_path: port/mbedtls
+    - repo_relative_path: hostapd
+    - repo_relative_path: wpa_supplicant
+    - repo_relative_path: freertos
+    - repo_relative_path: freertos/src
+    files:
+    - source: port/mbedtls/wpa_supp_mbedtls_config.h
+    - source: port/mbedtls/wpa_supp_els_pkc_mbedtls_config.h
+    - source: port/mbedtls/wpa_supp_ele_s400_mbedtls_config.h
+    - source: src/common/wpa_common.c
+    - source: src/common/ieee802_11_common.c
+    - source: src/common/hw_features_common.c
+    - source: src/common/wpa_ctrl.c
+    - source: src/common/cli.c
+    - source: src/drivers/driver_common.c
+    - source: src/drivers/drivers.c
+    - source: src/l2_packet/l2_packet.h
+    - source: src/l2_packet/l2_packet_freertos.c
+    - source: src/drivers/driver_freertos.c
+    - source: src/utils/base64.c
+    - source: src/utils/common.c
+    - source: src/utils/wpabuf.c
+    - source: src/utils/bitfield.c
+    - source: src/utils/os_freertos.c
+    - source: src/utils/crc32.c
+    - source: src/utils/ip_addr.c
+    - source: src/utils/block_alloc.c
+    - source: src/utils/dl_list.h
+    - source: wpa_supplicant/ap.h
+    - source: wpa_supplicant/autoscan.h
+    - source: wpa_supplicant/bgscan.h
+    - source: wpa_supplicant/bss.h
+    - source: wpa_supplicant/bssid_ignore.h
+    - source: wpa_supplicant/config.h
+    - source: wpa_supplicant/config_ssid.h
+    - source: wpa_supplicant/ctrl_iface.h
+    - source: wpa_supplicant/dpp_supplicant.h
+    - source: wpa_supplicant/driver_i.h
+    - source: wpa_supplicant/gas_query.h
+    - source: wpa_supplicant/hs20_supplicant.h
+    - source: wpa_supplicant/ibss_rsn.h
+    - source: wpa_supplicant/interworking.h
+    - source: wpa_supplicant/mesh.h
+    - source: wpa_supplicant/mesh_mpm.h
+    - source: wpa_supplicant/mesh_rsn.h
+    - source: wpa_supplicant/notify.h
+    - source: wpa_supplicant/offchannel.h
+    - source: wpa_supplicant/p2p_supplicant.h
+    - source: wpa_supplicant/scan.h
+    - source: wpa_supplicant/sme.h
+    - source: wpa_supplicant/wifi_display.h
+    - source: wpa_supplicant/wmm_ac.h
+    - source: wpa_supplicant/wnm_sta.h
+    - source: wpa_supplicant/wpas_glue.h
+    - source: wpa_supplicant/wpas_kay.h
+    - source: wpa_supplicant/wpa_supplicant_i.h
+    - source: wpa_supplicant/wps_supplicant.h
+    - source: wpa_supplicant/binder/binder.h
+    - source: wpa_supplicant/dbus/dbus_common.h
+    - source: wpa_supplicant/dbus/dbus_new.h
+    - source: freertos/src/supp_main.h
+    - source: freertos/src/supp_api.h
+    - source: freertos/src/wpa_cli.h
+    - source: freertos/src/wpa_cli.c
+      #    - source: freertos/src/utils/wpa_debug.h
+      #    - source: wpa_supplicant/bgscan.c
+      #    - source: wpa_supplicant/bgscan_simple.c
+      #    - source: wpa_supplicant/bgscan_learn.c
+    - source: wpa_supplicant/config.c
+    - source: wpa_supplicant/notify.c
+    - source: wpa_supplicant/bss.c
+    - source: wpa_supplicant/eap_register.c
+    - source: wpa_supplicant/op_classes.c
+    - source: wpa_supplicant/rrm.c
+    - source: wpa_supplicant/wmm_ac.c
+    - source: wpa_supplicant/config_none.c
+    - source: wpa_supplicant/sme.c
+    - source: wpa_supplicant/wpa_supplicant.c
+    - source: wpa_supplicant/events.c
+    - source: wpa_supplicant/bssid_ignore.c
+    - source: wpa_supplicant/wpas_glue.c
+    - source: wpa_supplicant/scan.c
+    - source: wpa_supplicant/robust_av.c
+    - source: wpa_supplicant/ctrl_iface.c
+    - source: wpa_supplicant/ctrl_iface_udp.c
+    - source: wpa_supplicant/mbo.c
+    - source: wpa_supplicant/wnm_sta.c
+    - source: wpa_supplicant/README
+      #    - source: wpa_supplicant/wpa_cli.c
+    - source: src/utils/wpa_debug.c
+    - source: freertos/src/supp_main.c
+      #    - source: freertos/src/utils/wpa_debug.c
+    - source: freertos/src/supp_api.c
+    - source: wpa_supplicant/ap.c
+    - source: src/ap/ap_config.c
+    - source: src/ap/ap_drv_ops.c
+    - source: src/ap/ap_list.c
+    - source: src/ap/ap_mlme.c
+    - source: src/ap/authsrv.c
+    - source: src/ap/beacon.c
+    - source: src/ap/bss_load.c
+    - source: src/ap/dfs.c
+    - source: src/ap/drv_callbacks.c
+    - source: src/ap/eap_user_db.c
+    - source: src/ap/hostapd.c
+    - source: src/ap/hw_features.c
+    - source: src/ap/ieee802_11_auth.c
+    - source: src/ap/ieee802_11.c
+    - source: src/ap/ieee802_11_he.c
+    - source: src/ap/ieee802_11_ht.c
+    - source: src/ap/ieee802_11_shared.c
+    - source: src/ap/ieee802_11_vht.c
+    - source: src/ap/ieee802_1x.c
+    - source: src/ap/neighbor_db.c
+    - source: src/ap/p2p_hostapd.c
+    - source: src/ap/pmksa_cache_auth.c
+    - source: src/ap/preauth_auth.c
+    - source: src/ap/rrm.c
+    - source: src/ap/sta_info.c
+    - source: src/ap/tkip_countermeasures.c
+    - source: src/ap/utils.c
+    - source: src/ap/wmm.c
+    - source: src/ap/ctrl_iface_ap.c
+    - source: src/ap/mbo_ap.c
+    - source: src/ap/wpa_auth.c
+    - source: src/ap/wpa_auth_ie.c
+    - source: src/ap/wpa_auth_ft.c
+    - source: src/ap/wpa_auth_glue.c
+    - source: src/eap_common/eap_common.c
+    - source: src/eap_server/eap_server.c
+    - source: src/eap_server/eap_server_identity.c
+    - source: src/eap_server/eap_server_methods.c
+    - source: src/eapol_auth/eapol_auth_sm.c
+    - source: src/crypto/aes-eax.c
+    - source: src/crypto/aes-encblock.c
+    - source: src/crypto/aes-ctr.c
+    - source: src/crypto/aes-cbc.c
+    - source: src/crypto/aes-siv.c
+    - source: src/crypto/aes-unwrap.c
+    - source: src/crypto/aes-wrap.c
+    - source: src/crypto/des-internal.c
+    - source: src/crypto/dh_groups.c
+    - source: src/crypto/rc4.c
+    - source: src/crypto/md4-internal.c
+    - source: src/crypto/md5.c
+    - source: src/crypto/md5-internal.c
+    - source: src/crypto/sha1-internal.c
+    - source: src/crypto/fips_prf_internal.c
+    - source: src/crypto/sha256-internal.c
+    - source: src/crypto/sha1.c
+    - source: src/crypto/sha256.c
+    - source: src/crypto/tls_none.c
+    - source: src/crypto/ms_funcs.c
+    - source: src/crypto/sha1-tlsprf.c
+    - source: src/crypto/sha1-prf.c
+    - source: src/crypto/sha256-prf.c
+    - source: src/crypto/sha1-pbkdf2.c
+    - source: src/crypto/aes-omac1.c
+    - source: src/crypto/aes-internal-enc.c
+    - source: src/crypto/aes-internal-dec.c
+    - source: src/crypto/aes-internal.c
+    - source: src/rsn_supp/wpa.c
+    - source: src/rsn_supp/preauth.c
+    - source: src/rsn_supp/pmksa_cache.c
+    - source: src/rsn_supp/wpa_ie.c
+    - source: src/crypto/crypto_mbedtls2.c
+    - source: src/crypto/tls_mbedtls2.c
+    - source: src/crypto/sha256-kdf.c
+    - source: src/crypto/sha384-kdf.c
+    - source: src/crypto/sha512-kdf.c
+    - source: src/common/sae.c
+    - source: src/common/dragonfly.c
+    - source: wpa_supplicant/p2p_supplicant.c
+    - source: wpa_supplicant/p2p_supplicant_sd.c
+    - source: src/p2p/p2p.c
+    - source: src/p2p/p2p_utils.c
+    - source: src/p2p/p2p_parse.c
+    - source: src/p2p/p2p_build.c
+    - source: src/p2p/p2p_go_neg.c
+    - source: src/p2p/p2p_sd.c
+    - source: src/p2p/p2p_pd.c
+    - source: src/p2p/p2p_invitation.c
+    - source: src/p2p/p2p_dev_disc.c
+    - source: src/p2p/p2p_group.c
+    - source: src/common/gas.c
+    - source: wpa_supplicant/gas_query.c
+    - source: wpa_supplicant/offchannel.c
+    - source: wpa_supplicant/wps_supplicant.c
+    - source: src/utils/uuid.c
+    - source: src/eap_peer/eap_wsc.c
+    - source: src/eap_common/eap_wsc_common.c
+    - source: src/wps/wps.c
+    - source: src/ap/wps_hostapd.c
+    - source: src/wps/wps_common.c
+    - source: src/wps/wps_attr_parse.c
+    - source: src/wps/wps_attr_build.c
+    - source: src/wps/wps_attr_process.c
+    - source: src/wps/wps_dev_attr.c
+    - source: src/wps/wps_enrollee.c
+    - source: src/wps/wps_registrar.c
+    - source: src/eapol_supp/eapol_supp_sm.c
+    - source: src/eap_peer/eap.c
+    - source: src/eap_peer/eap_methods.c
+    - source: src/eap_peer/eap_tls.c
+    - source: src/eap_peer/eap_tls_common.c
+    - source: src/eap_peer/eap_peap.c
+    - source: src/eap_common/eap_peap_common.c
+    - source: src/eap_peer/eap_ttls.c
+      #    - source: src/eap_peer/eap_md5.c
+    - source: src/eap_peer/eap_mschapv2.c
+    - source: src/eap_common/chap.c
+    - source: src/eap_peer/mschapv2.c
+      #    - source: src/eap_peer/eap_leap.c
+      #    - source: src/eap_peer/eap_psk.c
+      #    - source: src/eap_common/eap_psk_common.c
+    - source: src/eap_peer/eap_fast.c
+    - source: src/eap_peer/eap_fast_pac.c
+    - source: src/eap_peer/eap_gtc.c
+    - source: src/eap_common/eap_fast_common.c
+      #    - source: src/eap_peer/eap_pax.c
+      #    - source: src/eap_common/eap_pax_common.c
+      #    - source: src/eap_peer/eap_sake.c
+      #   - source: src/eap_common/eap_sake_common.c
+      #    - source: src/eap_peer/eap_gpsk.c
+      #    - source: src/eap_common/eap_gpsk_common.c
+      #    - source: src/eap_peer/eap_pwd.c
+      #    - source: src/eap_common/eap_pwd_common.c
+      #    - source: src/eap_peer/eap_eke.c
+      #    - source: src/eap_common/eap_eke_common.c
+      #    - source: src/eap_peer/eap_ikev2.c
+      #    - source: src/eap_peer/ikev2.c
+      #    - source: src/eap_common/eap_ikev2_common.c
+      #    - source: src/eap_common/ikev2_common.c
+    - source: hostapd/hlr_auc_gw.c
+    - source: hostapd/ctrl_iface.c
+    - source: hostapd/eap_register.c
+    - source: hostapd/config_file.h
+    - source: hostapd/ctrl_iface.h
+    - source: hostapd/eap_register.h
+    - source: hostapd/README
+    - source: src/rsn_supp/wpa_ft.c
+    - source: src/ap/wnm_ap.c
+    - source: src/ap/eth_p_oui.c
+    - source: src/eap_server/eap_server_wsc.c
+    - source: src/eap_server/eap_server_tls.c
+    - source: src/radius/radius_server.c
+    - source: src/radius/radius_das.c
+    - source: src/radius/radius_client.c
+    - source: src/radius/radius.c
+    - source: src/eap_server/eap_sim_db.c
+    - source: src/eap_common/eap_sim_common.c
+      #    - source: src/eap_common/eap_teap_common.c
+      #    - source: src/eap_server/ikev2.c
+    - source: src/eap_server/eap_server_ttls.c
+      #    - source: src/eap_server/eap_server_tnc.c
+    - source: src/eap_server/eap_server_tls_common.c
+      #    - source: src/eap_server/eap_server_teap.c
+      #    - source: src/eap_server/eap_server_sake.c
+      #    - source: src/eap_server/eap_server_pwd.c
+      #    - source: src/eap_server/eap_server_psk.c
+    - source: src/eap_server/eap_server_peap.c
+      #    - source: src/eap_server/eap_server_pax.c
+    - source: src/eap_server/eap_server_mschapv2.c
+    - source: src/eap_server/eap_server_md5.c
+      #    - source: src/eap_server/eap_server_ikev2.c
+    - source: src/eap_server/eap_server_gtc.c
+      #    - source: src/eap_server/eap_server_gpsk.c
+    - source: src/eap_server/eap_server_fast.c
+      #    - source: src/eap_server/eap_server_eke.c
+    - source: src/eap_server/eap_server_sim.c
+    - source: src/eap_server/eap_server_aka.c
+    - source: src/ap/acs.c
+    - source: src/ap/acs.h
+    - source: src/utils/eloop_freertos.c
+    - source: src/crypto/milenage.c
+    - source: src/eap_peer/eap_sim.c
+    - source: src/eap_peer/eap_aka.c
+      #    - source: src/eap_peer/eap_teap.c
+      #    - source: src/eap_peer/eap_teap_pac.c
+    - source: wpa_supplicant/dpp_supplicant.c
+    - source: wpa_supplicant/interworking.c
+    - source: src/common/dpp.c
+    - source: src/common/dpp_auth.c
+    - source: src/common/dpp_backup.c
+    - source: src/common/dpp_crypto.c
+    - source: src/common/dpp_pkex.c
+    - source: src/common/dpp_reconfig.c
+    - source: src/common/dpp_tcp.c
+    - source: src/common/gas_server.c
+    - source: src/utils/json.c
+    - source: src/tls/asn1.c
+    - source: src/ap/dpp_hostapd.c
+    - source: src/ap/gas_query_ap.c
+    - source: src/ap/gas_serv.c
+    - source: src/ap/accounting.h
+    - source: src/ap/airtime_policy.h
+    - source: src/ap/ap_config.h
+    - source: src/ap/ap_drv_ops.h
+    - source: src/ap/ap_list.h
+    - source: src/ap/ap_mlme.h
+    - source: src/ap/authsrv.h
+    - source: src/ap/beacon.h
+    - source: src/ap/bss_load.h
+    - source: src/ap/ctrl_iface_ap.h
+    - source: src/ap/dfs.h
+    - source: src/ap/dhcp_snoop.h
+    - source: src/ap/dpp_hostapd.h
+    - source: src/ap/eth_p_oui.h
+    - source: src/ap/fils_hlp.h
+    - source: src/ap/gas_query_ap.h
+    - source: src/ap/gas_serv.h
+    - source: src/ap/hostapd.h
+    - source: src/ap/hs20.h
+    - source: src/ap/hw_features.h
+    - source: src/ap/ieee802_11_auth.h
+    - source: src/ap/ieee802_11.h
+    - source: src/ap/ieee802_1x.h
+    - source: src/ap/mbo_ap.h
+    - source: src/ap/ndisc_snoop.h
+    - source: src/ap/neighbor_db.h
+    - source: src/ap/p2p_hostapd.h
+    - source: src/ap/pmksa_cache_auth.h
+    - source: src/ap/preauth_auth.h
+    - source: src/ap/rrm.h
+    - source: src/ap/sta_info.h
+    - source: src/ap/taxonomy.h
+    - source: src/ap/tkip_countermeasures.h
+    - source: src/ap/vlan.h
+    - source: src/ap/vlan_init.h
+    - source: src/ap/vlan_util.h
+    - source: src/ap/wmm.h
+    - source: src/ap/wnm_ap.h
+    - source: src/ap/wpa_auth_glue.h
+    - source: src/ap/wpa_auth.h
+    - source: src/ap/wpa_auth_ie.h
+    - source: src/ap/wpa_auth_i.h
+    - source: src/ap/wpa_auth_kay.h
+    - source: src/ap/wps_hostapd.h
+    - source: src/ap/x_snoop.h
+    - source: src/common/brcm_vendor.h
+    - source: src/common/cli.h
+    - source: src/common/ctrl_iface_common.h
+    - source: src/common/defs.h
+    - source: src/common/dhcp.h
+    - source: src/common/dpp.h
+    - source: src/common/dpp_i.h
+    - source: src/common/dragonfly.h
+    - source: src/common/eapol_common.h
+    - source: src/common/gas.h
+    - source: src/common/gas_server.h
+    - source: src/common/hw_features_common.h
+    - source: src/common/ieee802_11_common.h
+    - source: src/common/ieee802_11_defs.h
+    - source: src/common/ieee802_1x_defs.h
+    - source: src/common/linux_bridge.h
+    - source: src/common/linux_vlan.h
+    - source: src/common/ocv.h
+    - source: src/common/privsep_commands.h
+    - source: src/common/ptksa_cache.h
+    - source: src/common/qca-vendor-attr.h
+    - source: src/common/qca-vendor.h
+    - source: src/common/sae.h
+    - source: src/common/tnc.h
+    - source: src/common/version.h
+    - source: src/common/wpa_common.h
+    - source: src/common/wpa_ctrl.h
+    - source: src/common/wpa_helpers.h
+    - source: src/drivers/driver.h
+    - source: src/drivers/driver_hostap.h
+    - source: src/drivers/driver_freertos.h
+    - source: src/drivers/rfkill.h
+    - source: src/eapol_auth/eapol_auth_sm.h
+    - source: src/eapol_auth/eapol_auth_sm_i.h
+    - source: src/eap_peer/eap_config.h
+    - source: src/eap_peer/eap_fast_pac.h
+    - source: src/eap_peer/eap.h
+    - source: src/eap_peer/eap_i.h
+    - source: src/eap_peer/eap_methods.h
+    - source: src/eap_peer/eap_proxy.h
+    - source: src/eap_peer/eap_teap_pac.h
+    - source: src/eap_peer/eap_tls_common.h
+    - source: src/eap_peer/ikev2.h
+    - source: src/eap_peer/mschapv2.h
+    - source: src/eap_peer/tncc.h
+    - source: src/fst/fst_ctrl_aux.h
+    - source: src/fst/fst_ctrl_defs.h
+    - source: src/fst/fst_ctrl_iface.h
+    - source: src/fst/fst_defs.h
+    - source: src/fst/fst_group.h
+    - source: src/fst/fst.h
+    - source: src/fst/fst_iface.h
+    - source: src/fst/fst_internal.h
+    - source: src/fst/fst_session.h
+    - source: src/pae/ieee802_1x_cp.h
+    - source: src/pae/ieee802_1x_kay.h
+    - source: src/pae/ieee802_1x_kay_i.h
+    - source: src/pae/ieee802_1x_key.h
+    - source: src/pae/ieee802_1x_secy_ops.h
+    - source: src/rsn_supp/pmksa_cache.h
+    - source: src/rsn_supp/preauth.h
+    - source: src/rsn_supp/wpa.h
+    - source: src/rsn_supp/wpa_ie.h
+    - source: src/rsn_supp/wpa_i.h
+    - source: src/utils/base64.h
+    - source: src/utils/bitfield.h
+    - source: src/utils/block_alloc.h
+    - source: src/utils/browser.h
+    - source: src/utils/build_config.h
+    - source: src/utils/common.h
+    - source: src/utils/config.h
+    - source: src/utils/const_time.h
+    - source: src/utils/crc32.h
+    - source: src/utils/edit.h
+    - source: src/utils/eloop.h
+    - source: src/utils/ext_password.h
+    - source: src/utils/ext_password_i.h
+    - source: src/utils/http-utils.h
+    - source: src/utils/includes.h
+    - source: src/utils/ip_addr.h
+    - source: src/utils/json.h
+    - source: src/utils/module_tests.h
+    - source: src/utils/os.h
+    - source: src/utils/pcsc_funcs.h
+    - source: src/utils/platform.h
+    - source: src/utils/state_machine.h
+    - source: src/utils/trace.h
+    - source: src/utils/uuid.h
+    - source: src/utils/wpabuf.h
+    - source: src/utils/wpa_debug.h
+    - source: src/utils/xml-utils.h
+    - source: src/crypto/aes.h
+    - source: src/crypto/aes_i.h
+    - source: src/crypto/aes_siv.h
+    - source: src/crypto/aes_wrap.h
+    - source: src/crypto/crypto.h
+    - source: src/crypto/des_i.h
+    - source: src/crypto/dh_group5.h
+    - source: src/crypto/dh_groups.h
+    - source: src/crypto/md5.h
+    - source: src/crypto/md5_i.h
+    - source: src/crypto/milenage.h
+    - source: src/crypto/ms_funcs.h
+    - source: src/crypto/random.h
+    - source: src/crypto/sha1.h
+    - source: src/crypto/sha1_i.h
+    - source: src/crypto/sha256.h
+    - source: src/crypto/sha256_i.h
+    - source: src/crypto/sha384.h
+    - source: src/crypto/sha384_i.h
+    - source: src/crypto/sha512.h
+    - source: src/crypto/sha512_i.h
+    - source: src/crypto/tls.h
+    - source: src/eap_common/chap.h
+    - source: src/eap_common/eap_common.h
+    - source: src/eap_common/eap_defs.h
+    - source: src/eap_common/eap_eke_common.h
+    - source: src/eap_common/eap_fast_common.h
+    - source: src/eap_common/eap_gpsk_common.h
+    - source: src/eap_common/eap_ikev2_common.h
+    - source: src/eap_common/eap_pax_common.h
+    - source: src/eap_common/eap_peap_common.h
+    - source: src/eap_common/eap_psk_common.h
+    - source: src/eap_common/eap_pwd_common.h
+    - source: src/eap_common/eap_sake_common.h
+    - source: src/eap_common/eap_sim_common.h
+    - source: src/eap_common/eap_teap_common.h
+    - source: src/eap_common/eap_tlv_common.h
+    - source: src/eap_common/eap_ttls.h
+    - source: src/eap_common/eap_wsc_common.h
+    - source: src/eap_common/ikev2_common.h
+    - source: src/eapol_supp/eapol_supp_sm.h
+    - source: src/eap_server/eap.h
+    - source: src/eap_server/eap_i.h
+    - source: src/eap_server/eap_methods.h
+    - source: src/eap_server/eap_sim_db.h
+    - source: src/eap_server/eap_tls_common.h
+    - source: src/eap_server/ikev2.h
+    - source: src/eap_server/tncs.h
+    - source: src/p2p/p2p.h
+    - source: src/p2p/p2p_i.h
+    - source: src/radius/radius_client.h
+    - source: src/radius/radius_das.h
+    - source: src/radius/radius.h
+    - source: src/radius/radius_server.h
+    - source: src/tls/asn1.h
+    - source: src/tls/bignum.h
+    - source: src/tls/pkcs1.h
+    - source: src/tls/pkcs5.h
+    - source: src/tls/pkcs8.h
+    - source: src/tls/rsa.h
+    - source: src/tls/tlsv1_client.h
+    - source: src/tls/tlsv1_client_i.h
+    - source: src/tls/tlsv1_common.h
+    - source: src/tls/tlsv1_cred.h
+    - source: src/tls/tlsv1_record.h
+    - source: src/tls/tlsv1_server.h
+    - source: src/tls/tlsv1_server_i.h
+    - source: src/tls/x509v3.h
+    - source: src/wps/http_client.h
+    - source: src/wps/http.h
+    - source: src/wps/httpread.h
+    - source: src/wps/http_server.h
+    - source: src/wps/upnp_xml.h
+    - source: src/wps/wps_attr_parse.h
+    - source: src/wps/wps_defs.h
+    - source: src/wps/wps_dev_attr.h
+    - source: src/wps/wps_er.h
+    - source: src/wps/wps.h
+    - source: src/wps/wps_i.h
+    - source: src/wps/wps_upnp.h
+    - source: src/wps/wps_upnp_i.h
+    configuration:
+      tools:
+        iar:
+          cc-flags:
+            - "--dlib_config full"
+          ld-flags:
+            - "--semihosting"
+            - "--redirect __iar_sh_stdout=__iar_sh_stdout_swo"
+        armgcc:
+          cc-flags:
+          - "-fomit-frame-pointer"
+          - "-Wno-unused-function"
+        mcux:
+          cc-flags:
+          - "-fomit-frame-pointer"
+      cc-define:
+        USE_RTOS: 1
+        SDK_OS_FREE_RTOS:
+        FSL_OSA_TASK_ENABLE: 1
+        PRINTF_ADVANCED_ENABLE: 1
+        MBEDTLS_CONFIG_FILE: '"wpa_supp_mbedtls_config.h"'
+  belong_to: set.middleware.wireless.wpa_supplicant
+  section_info:
+    need_require: true
+    version: 2.11.0
+    type: middleware
+    full_name: Wpa supplicant rtos
+    description: Wpa supplicant rtos
+    user_visible: always
+    display_name: wpa_supplicant-rtos
+    taxonomy:
+      csub: rtos
+      belong_to: wireless
+  dependency:
+    allOf:
+    - middleware.freertos-kernel
+    - utility.debug_console
+    - component.osa_free_rtos
+    - middleware.wifi
+    - middleware.lwip
+    - middleware.mbedtls
+set.middleware.wireless.wpa_supplicant:
+  section-type: set
+  belong_to: set.middleware.wireless.wpa_supplicant
+  section_info:
+    fixed_id: nxp_wifi_wpa_supplicant
+    version: 2.11.0
+    type: middleware
+    display_name: wpa_supplicant-rtos
+    description: wpa_supplicant-rtos
+    set_location:
+      repo_base_path: middleware/wireless/wpa_supplicant-rtos
+    vendor: NXP
+    product:
+      kex_package:
+        scr:
+          - scr.middleware.wireless.wpa_supplicant
+        kex_web_ui:
+          ui_control: true
+          ui_release_specific: true
+          ui_control_default: false
+          ui_category: Middleware
+      cmsis_pack:
+        vendor: NXP
+        scr:
+          - scr.middleware.wireless.wpa_supplicant
+        supported: true
+        pack_root:
+          pack_type: SWP
+          pack_name: WIRELESS_WPA_SUPPLICANT
+          pack_version: 1.0.0
+    component_taxonomy:
+      wireless:
+        cclass: Wireless
+        cgroup: wpa_supplicant
+  dependency:
+    allOf:
+    - board:
+      - evkmimxrt595
+      - evkmimxrt685
+      - mimxrt685audevk
+      - evkmimxrt1020
+      - evkmimxrt1040
+      - evkbimxrt1050
+      - evkmimxrt1060
+      - evkbmimxrt1060
+      - evkcmimxrt1060
+      - evkmimxrt1064
+      - evkmimxrt1160
+      - evkmimxrt1170
+      - evkbmimxrt1170
+      - evkmimxrt1180
+      - evkmimxrt1180a
+      - mcxn9xxevk
+      - mcxn5xxevk
+      - rdrw612bga
+      - rdrw612qfn
+    - set.middleware.lwip
+    - set.middleware.freertos-kernel
+    - set.middleware.mbedtls
+license.wpa_supplicant_license:
+  section-type: license
+  belong_to: set.middleware.wireless.wpa_supplicant
+  contents:
+    repo_base_path: middleware/wireless/wpa_supplicant-rtos
+    files:
+    - source: wpa_supplicant/README
+  section_info:
+    Outgoing License: BSD-3-Clause
+scr.middleware.wireless.wpa_supplicant:
+  section-type: scr
+  belong_to: set.middleware.wireless.wpa_supplicant
+  contents:
+    license:
+    - license.wpa_supplicant_license
+    Name: wpa_supplicant-rtos
+    Version: 2.11.0
+    Format: source code
+    Description: WPA Supplicant & HOSTAPD
+    Location: middleware/wireless/wpa_supplicant-rtos
+    Origin: https://w1.fi/wpa_supplicant/ and https://w1.fi/hostapd/

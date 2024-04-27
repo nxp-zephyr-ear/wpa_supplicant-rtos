@@ -1,0 +1,27 @@
+diff --git a/src/eap_server/eap_sim_db.c b/src/eap_server/eap_sim_db.c
+index bb8e6cb0..8eb327d9 100644
+--- a/src/eap_server/eap_sim_db.c
++++ b/src/eap_server/eap_sim_db.c
+@@ -698,7 +698,7 @@ const int EAP_SIM_DB_TASK_PRIO       = OS_PRIO_2;
+ #define CONFIG_EAP_SIM_DB_THREAD_STACK_SIZE 2048
+ 
+ struct k_thread eapSimdbTask;
+-k_tid_t eap_sim_db_thread;
++k_tid_t eap_sim_db_thread = NULL;
+ K_THREAD_STACK_DEFINE(eapSimdbTaskStack, CONFIG_EAP_SIM_DB_THREAD_STACK_SIZE);
+ 
+ #define ESD_NUM_MESSAGES (20)
+@@ -949,7 +949,12 @@ static void eap_sim_db_close_socket(struct eap_sim_db_data *data)
+         data->local_sock = NULL;
+     }
+ #elif defined(CONFIG_ZEPHYR)
+-    k_msgq_purge(&eap_sim_db_event_queue);
++    if (eap_sim_db_thread)
++    {
++        k_thread_abort(eap_sim_db_thread);
++        eap_sim_db_thread = NULL;
++        k_msgq_purge(&eap_sim_db_event_queue);
++    }
+ #elif defined(CONFIG_FREERTOS)
+     if (eap_sim_db_thread)
+     {
